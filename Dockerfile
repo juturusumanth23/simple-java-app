@@ -1,14 +1,14 @@
-# Base image
+# Use an official OpenJDK runtime as a base image
 FROM openjdk:17-jdk-alpine
 
-# Set working directory
+# Set the working directory inside the container
 WORKDIR /usr/src/app
 
-# Copy the JAR file
+# Copy the JAR file from the target directory into the container
 COPY target/simple-java-app-1.0.jar /usr/src/app/simple-java-app.jar
 
-# Expose port
+# Expose the application on port 8080 (if your app is web-based)
 EXPOSE 8080
 
-# Run JAR
-CMD ["java", "-jar", "simple-java-app.jar"]
+# Command to run the JAR file
+CMD ["java", "-jar", "/usr/src/app/simple-java-app.jar"]
